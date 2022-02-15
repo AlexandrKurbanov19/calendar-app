@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: teal;
+}
+
+.main {
+  background: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: 20px auto;
+  @media (max-width: 450px) {
+    padding: 15px 5px;
+  }
+}
+
+.grid {
+  max-width: 100vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(40px, 110px));
+  grid-template-rows: repeat(6, minmax(40px, 100px));
+  gap: 3px;
+  &__item {
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    color: #000;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+
+    &-card {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: flex-start;
+      p {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    &-event-list {
+      display: flex;
+      list-style: none;
+      padding-top: 10px;
+      .event__item {
+        overflow: hidden;
+        white-space: nowrap; 
+        text-overflow: ellipsis;
+        border-radius: 3px;
+        padding: 2px;
+        font-weight: 400;
+        &.orange {
+          color: #bda581;
+          background: #fbebd2;
+        }
+        &.green {
+          color: #a1c2a7;
+          background: #dbffe3;
+        }
+        &.red {
+          color: #a97b7d;
+          background: #ffe8e6;
+        }
+        &:hover {
+          overflow: visible;
+          width: auto;
+          z-index: 2;
+          display: block;
+          position: absolute;
+        }
+      }
+    }
+    &.weekend {
+      color: #c8a2c9;
+    }
+    &.current {
+      border: 1px solid rgb(80, 80, 80);
+      color: green;
+    }
+    &.last {
+      background: #eee;
+      color: #a9a9a9;
+    }
+    p {
+      font-weight: bold;
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+.current {
+  color: green;
+}
+.header {
+  max-width: 100vw;
+  margin: 0 auto;
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(20px, 110px));
+  }
+  &__item {
+    padding: 5px;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-align: center;
+    font-size: 10px;
+    @media (max-width: 450px) {
+      font-size: 6px;
+    }
+  }
+  .monthName {
+    color: #4b516e;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 0 10px;
+  }
+  .btn__changeMonth {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    img {
+      width: 12px;
+      height: 12px;
+    }
+    &.left {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
